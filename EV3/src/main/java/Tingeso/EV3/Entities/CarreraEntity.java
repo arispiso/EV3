@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "carreras")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Carrera {
+public class CarreraEntity {
     @Id
     private Long codigo;
     private String nombre;

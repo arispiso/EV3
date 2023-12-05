@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "estudiantes")
-public class Estudiante {
+public class EstudianteEntity {
     @Id
     private String rut;
     private String nombre;

@@ -1,7 +1,5 @@
 package Tingeso.EV3.Entities;
 
-
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -13,17 +11,20 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "planesDeEstudio")
+@Table(name = "notas")
 @Data
-
-@NoArgsConstructor
 @AllArgsConstructor
-public class PlanEstudio  {
-    private Long cod_carr;
-    private String cod_plan;
-    private int nivel;
+@NoArgsConstructor
+@IdClass(NotaEntity.class)
+public class NotaEntity implements Serializable {
+
+    @Id
+    private int anio;
+    @Id
+    private int semestre;
+    @Id
+    private String cod_alumno;
     @Id
     private Long cod_asig;
-    private String nom_asig;
-    private String horarios;
+    private double nota;
 }

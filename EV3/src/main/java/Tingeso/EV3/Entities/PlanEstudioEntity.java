@@ -3,23 +3,23 @@ package Tingeso.EV3.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Entity
-@Table(name = "preRequisitos")
-@AllArgsConstructor
+@Table(name = "planesDeEstudio")
 @Data
+
 @NoArgsConstructor
-@IdClass(Prerrequisito.class)
-public class Prerrequisito implements Serializable {
+@AllArgsConstructor
+public class PlanEstudioEntity {
+    private Long cod_carr;
+    private String cod_plan;
+    private int nivel;
     @Id
     private Long cod_asig;
-    @Id
-    private Long cod_prerreq;
+    private String nom_asig;
+    private String horarios;
 }
