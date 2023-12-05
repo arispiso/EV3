@@ -13,9 +13,9 @@ public class PrerrequisitoService {
     @Autowired
     PrerrequisitoRepository prerrequisitoRepository;
 
-    public void guardarPrerrequisito(PrerrequisitoEntity prerrequisito){
+    public PrerrequisitoEntity guardarPrerrequisito(PrerrequisitoEntity prerrequisito){
 
-        prerrequisitoRepository.save(prerrequisito);
+        return prerrequisitoRepository.save(prerrequisito);
     }
 
     public void eliminarPrerrequisito(PrerrequisitoEntity prerrequisito) {

@@ -14,8 +14,9 @@ public class EstudianteService {
     @Autowired
     EstudianteRepository estudianteRepository;
 
-    public void guardarEstudiante(EstudianteEntity estudiante){
-        estudianteRepository.save(estudiante);
+    public EstudianteEntity guardarEstudiante(EstudianteEntity estudiante){
+
+        return estudianteRepository.save(estudiante);
     }
 
     public void eliminarEstudiante(EstudianteEntity estudiante) {

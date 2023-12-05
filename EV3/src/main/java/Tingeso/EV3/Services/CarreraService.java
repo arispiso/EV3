@@ -15,8 +15,8 @@ public class CarreraService {
     @Autowired
     CarreraRepository carreraRepository;
 
-    public void guardarCarrera(CarreraEntity carrera){
-        carreraRepository.save(carrera);
+    public CarreraEntity guardarCarrera(CarreraEntity carrera){
+        return carreraRepository.save(carrera);
     }
 
     public void eliminarCarrera(CarreraEntity carrera) {

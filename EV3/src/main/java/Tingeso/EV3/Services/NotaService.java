@@ -14,8 +14,8 @@ public class NotaService {
     @Autowired
     NotaRepository notaRepository;
 
-    public void guardarNota(NotaEntity nota){
-        notaRepository.save(nota);
+    public NotaEntity guardarNota(NotaEntity nota){
+        return notaRepository.save(nota);
     }
 
     public void eliminarNota(NotaEntity nota) {
