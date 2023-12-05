@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PlanEstudioRepository extends JpaRepository<PlanEstudioEntity,Long> {
 
-    //@Query(value = "SELECT p FROM PlanEstudioEntity p WHERE p.cod_asig = :cod_asig")
-    //PlanEstudioEntity findByAsignatura(@Param("cod_asig") Long cod_asig);
+    @Query(value = "select p from planesDeEstudio p where p.cod_asig = :cod_asig", nativeQuery = true)
+    PlanEstudioEntity findByAsignatura(@Param("cod_asig") Long cod_asig);
 }
