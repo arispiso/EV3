@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CarreraEntity {
     @Id
-    private Long codigo;
+    private int codigo;
     private String nombre;
 
 }

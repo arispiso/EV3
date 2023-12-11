@@ -16,10 +16,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@IdClass(PrerrequisitoEntity.class)
-public class PrerrequisitoEntity implements Serializable {
+public class PrerrequisitoEntity {
+    private int cod_asig;
     @Id
-    private Long cod_asig;
-    @Id
-    private Long cod_prerreq;
+    private int cod_prerreq;
 }

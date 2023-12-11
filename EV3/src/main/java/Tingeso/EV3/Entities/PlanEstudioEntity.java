@@ -15,11 +15,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlanEstudioEntity {
-    private Long cod_carr;
-    private String cod_plan;
-    private int nivel;
+    private int cod_carr;
     @Id
-    private Long cod_asig;
+    private int cod_plan;
+    private int nivel;
+    private int cod_asig;
     private String nom_asig;
-    private String horarios;
 }

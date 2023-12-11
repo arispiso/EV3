@@ -18,5 +18,5 @@ public class EstudianteEntity {
     private String nombre;
     private String apellido;
     private String email;
-    private Long cod_carr; //código de la carrera
+    private int cod_carr; //código de la carrera
 }

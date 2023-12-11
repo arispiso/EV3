@@ -15,16 +15,12 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(NotaEntity.class)
-public class NotaEntity implements Serializable {
 
-    @Id
+public class NotaEntity {
     private int anio;
-    @Id
     private int semestre;
     @Id
-    private String cod_alumno;
-    @Id
-    private Long cod_asig;
+    private String cod_alumno; //rut del estudiante
+    private int cod_asig;
     private double nota;
 }
