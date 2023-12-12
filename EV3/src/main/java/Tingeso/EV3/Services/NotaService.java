@@ -29,4 +29,26 @@ public class NotaService {
     public ArrayList<NotaEntity> obtenerNotasByRUT(String rut){
         return notaRepository.findByCod_alumno(rut);
     }
+
+    public NotaEntity buscarPorCodigoAsignatura(int codigoAsignatura){
+        return notaRepository.findByCod_asig(codigoAsignatura);
+    }
+
+    public NotaEntity buscarNota(int nota){
+        return notaRepository.findByNota(nota);
+    }
+
+    public int verificarCondicionNota(int nota){
+        NotaEntity notas = notaRepository.findByNota(nota);
+        if(notas == null) {
+            return -3; //No existe la nota
+        }
+        if(notas.getNota() < 3){
+            return -2; //Significa que reprobaste el ramo
+        }
+        if(notas.getNota() > 4){
+            return 1; //Cumple con el requerimiento
+        }
+        return nota;
+    }
 }

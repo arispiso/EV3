@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 @Repository
 public interface EstudianteRepository extends JpaRepository<EstudianteEntity,Long> {
+    EstudianteEntity findByCod_carr(int codigo);
 
+    EstudianteEntity deleteByCod_carr(int codigo);
     @Query(value = "select * from estudiantes as e where e.rut= :rut", nativeQuery = true)
     ArrayList<EstudianteEntity> findByRut(@Param("rut")String rut);
 

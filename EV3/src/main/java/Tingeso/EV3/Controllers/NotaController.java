@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/notas")
+@CrossOrigin(origins = "http://localhost:3000")
 public class NotaController {
 
     @Autowired

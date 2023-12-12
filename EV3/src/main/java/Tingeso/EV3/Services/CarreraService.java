@@ -27,7 +27,7 @@ public class CarreraService {
         return (ArrayList<CarreraEntity>) carreraRepository.findAll();
     }
 
-    public ArrayList<CarreraEntity> obtenerCarrerasByRUT(Long codigo){
+    public CarreraEntity obtenerCarreraPorId(int codigo){
         return carreraRepository.findByCodigo(codigo);
     }
 }

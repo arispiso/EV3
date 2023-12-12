@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 @RestController
-@RequestMapping("/planesEstudio")
+@RequestMapping("/plan")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PlanEstudioController {
 
     @Autowired
@@ -28,5 +29,23 @@ public class PlanEstudioController {
     public ResponseEntity<PlanEstudioEntity> crearPlan(@RequestBody PlanEstudioEntity plan){
         PlanEstudioEntity p = planEstudioService.guardarPlanEstudio(plan);
         return ResponseEntity.ok(p);
+    }
+
+    @GetMapping("/byPlan/{codigoPlan}")
+    public ResponseEntity<PlanEstudioEntity> getPlanById(@PathVariable("codigoPlan") int codigoPlan){
+        PlanEstudioEntity plan = planEstudioService.buscarPlanPorId(codigoPlan);
+        if(plan == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(plan);
+    }
+
+    @GetMapping("/byAsignatura/{codigoAsignatura}")
+    public ResponseEntity<PlanEstudioEntity> getPlanByCodigoAsignatura(@PathVariable("codigoAsignatura") int codigoAsignatura){
+        PlanEstudioEntity plan = planEstudioService.buscarCodigoAsignatura(codigoAsignatura);
+        if(plan == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(plan);
     }
 }

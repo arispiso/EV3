@@ -30,4 +30,11 @@ public class EstudianteService {
     public ArrayList<EstudianteEntity> obtenerEstudiantesByRUT(String rut){
         return estudianteRepository.findByRut(rut);
     }
+
+    public EstudianteEntity findEstudiantePorCarrera(int codigoCarrera){
+        return estudianteRepository.findByCod_carr(codigoCarrera);
+    }
+    public EstudianteEntity deleteEstudiantePorCarrera(int codigoCarrera){
+        return estudianteRepository.deleteByCod_carr(codigoCarrera);
+    }
 }

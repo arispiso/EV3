@@ -9,5 +9,8 @@ import java.util.ArrayList;
 @Repository
 public interface NotaRepository extends JpaRepository<NotaEntity,Long> {
 
-    public ArrayList<NotaEntity> findByCod_alumno(String cod_alumno);
+    ArrayList<NotaEntity> findByCod_alumno(String cod_alumno);
+    NotaEntity findByCod_asig(int codigo);
+    NotaEntity findByNota(double nota);
+
 }

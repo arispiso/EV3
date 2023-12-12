@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/carreras")
 public class CarreraController {
 
@@ -32,6 +33,15 @@ public class CarreraController {
     public ResponseEntity<CarreraEntity> crearCarrera(@RequestBody CarreraEntity carrera){
         CarreraEntity c = carreraService.guardarCarrera(carrera);
         return ResponseEntity.ok(c);
+    }
+
+    @GetMapping("/byCarrera/{codigoCarrera}")
+    public ResponseEntity<CarreraEntity> getCarreraByCodigo(@PathVariable("codigoCarrera") int codigoCarrera){
+        CarreraEntity newCarrera = carreraService.obtenerCarreraPorId(codigoCarrera);
+        if(newCarrera == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(newCarrera);
     }
 
 }

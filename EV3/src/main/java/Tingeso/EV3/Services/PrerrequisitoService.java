@@ -26,4 +26,12 @@ public class PrerrequisitoService {
         return (ArrayList<PrerrequisitoEntity>) prerrequisitoRepository.findAll();
     }
 
+    public PrerrequisitoEntity findRequisiteById(int codigoPrerequisitos){
+        return prerrequisitoRepository.findByCod_prerreq(codigoPrerequisitos);
+    }
+
+    public ArrayList<PrerrequisitoEntity> buscarListaPorCodigoAsignatura(int codigoAsignatura){
+        return prerrequisitoRepository.findListByCod_asig(codigoAsignatura);
+    }
+
 }

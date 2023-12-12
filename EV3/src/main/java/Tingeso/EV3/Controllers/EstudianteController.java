@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
 @RestController
 @RequestMapping("/estudiantes")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EstudianteController {
 
     @Autowired
@@ -30,5 +30,14 @@ public class EstudianteController {
     public ResponseEntity<EstudianteEntity> crearEstudiante(@RequestBody EstudianteEntity estudiante){
         EstudianteEntity e = estudianteService.guardarEstudiante(estudiante);
         return ResponseEntity.ok(e);
+    }
+
+    @GetMapping("/ByCarrera/{codigoCarrera}")
+    public ResponseEntity<EstudianteEntity> getByCodigoCarrera(@PathVariable("codigoCarrera") int codigoCarrera){
+        EstudianteEntity estudiante = estudianteService.findEstudiantePorCarrera(codigoCarrera);
+        if(estudiante == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(estudiante);
     }
 }

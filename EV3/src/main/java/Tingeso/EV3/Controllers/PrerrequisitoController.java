@@ -5,13 +5,13 @@ import Tingeso.EV3.Services.PrerrequisitoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-@Controller
+@RestController
+@RequestMapping("/prerequisitos")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PrerrequisitoController {
 
     @Autowired
@@ -31,5 +31,14 @@ public class PrerrequisitoController {
     public ResponseEntity<PrerrequisitoEntity> crearPrerrequisito(@RequestBody PrerrequisitoEntity prerrequisito){
         PrerrequisitoEntity p = prerrequisitoService.guardarPrerrequisito(prerrequisito);
         return ResponseEntity.ok(p);
+    }
+
+    @GetMapping("/byPrerequisitos/{codigoPrerequisitos}")
+    public ResponseEntity<PrerrequisitoEntity> buscarPrerequisito(@PathVariable("codigoPrerequisitos") int codigoPrerequisitos){
+        PrerrequisitoEntity newPrerequisito = prerrequisitoService.findRequisiteById(codigoPrerequisitos);
+        if(newPrerequisito == null){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(newPrerequisito);
     }
 }
