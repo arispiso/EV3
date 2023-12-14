@@ -1,8 +1,6 @@
 package Tingeso.EV3.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +12,19 @@ import lombok.NoArgsConstructor;
 @Table(name = "estudiantes")
 public class EstudianteEntity {
     @Id
+    @Column(name = "rut", nullable = false, unique = true)
     private String rut;
     private String nombre;
     private String apellido;
     private String email;
-    private int cod_carr; //código de la carrera
+    @OneToOne
+    @JoinColumn(name = "codcarr")
+    private CarreraEntity carrera;//llave foranea
+    @Column(name = "cantidadasignaturas", nullable = true)
+    private Integer cantidadasig;
+    @Column(name = "nivel", nullable = true)
+    private Integer nivel;
+    @Column(name = "situacion", nullable = true)
+    private String situacion;
+
 }

@@ -15,33 +15,5 @@ import java.util.ArrayList;
 @RequestMapping("/carreras")
 public class CarreraController {
 
-    @Autowired
-    CarreraService carreraService;
-
-    @GetMapping()
-    public ResponseEntity<ArrayList<CarreraEntity>> mostrarCarreras(){
-
-        ArrayList<CarreraEntity> listaCarreras = carreraService.obtenerCarreras();
-
-        if(listaCarreras == null){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(listaCarreras);
-    }
-
-    @PostMapping()
-    public ResponseEntity<CarreraEntity> crearCarrera(@RequestBody CarreraEntity carrera){
-        CarreraEntity c = carreraService.guardarCarrera(carrera);
-        return ResponseEntity.ok(c);
-    }
-
-    @GetMapping("/byCarrera/{codigoCarrera}")
-    public ResponseEntity<CarreraEntity> getCarreraByCodigo(@PathVariable("codigoCarrera") int codigoCarrera){
-        CarreraEntity newCarrera = carreraService.obtenerCarreraPorId(codigoCarrera);
-        if(newCarrera == null){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(newCarrera);
-    }
 
 }

@@ -4,7 +4,6 @@ import Tingeso.EV3.Entities.EstudianteEntity;
 import Tingeso.EV3.Services.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,11 +14,10 @@ public class EstudianteController {
 
     @Autowired
     EstudianteService estudianteService;
-    @GetMapping()
+    @GetMapping("/todos")
     public ResponseEntity<ArrayList<EstudianteEntity>> mostrarEstudiantes(){
 
         ArrayList<EstudianteEntity> listaEstudiantes= estudianteService.obtenerEstudiantes();
-
         if(listaEstudiantes == null){
             return ResponseEntity.noContent().build();
         }
@@ -32,12 +30,4 @@ public class EstudianteController {
         return ResponseEntity.ok(e);
     }
 
-    @GetMapping("/ByCarrera/{codigoCarrera}")
-    public ResponseEntity<EstudianteEntity> getByCodigoCarrera(@PathVariable("codigoCarrera") int codigoCarrera){
-        EstudianteEntity estudiante = estudianteService.findEstudiantePorCarrera(codigoCarrera);
-        if(estudiante == null){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(estudiante);
-    }
 }

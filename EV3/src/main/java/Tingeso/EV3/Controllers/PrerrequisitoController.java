@@ -14,31 +14,4 @@ import java.util.ArrayList;
 @CrossOrigin(origins = "http://localhost:3000")
 public class PrerrequisitoController {
 
-    @Autowired
-    PrerrequisitoService prerrequisitoService;
-    @GetMapping()
-    public ResponseEntity<ArrayList<PrerrequisitoEntity>> mostrarPrerrequisitos(){
-
-        ArrayList<PrerrequisitoEntity> listaPrerrequisitos = prerrequisitoService.obtenerPrerrequisitos();
-
-        if(listaPrerrequisitos == null){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(listaPrerrequisitos);
-    }
-
-    @PostMapping()
-    public ResponseEntity<PrerrequisitoEntity> crearPrerrequisito(@RequestBody PrerrequisitoEntity prerrequisito){
-        PrerrequisitoEntity p = prerrequisitoService.guardarPrerrequisito(prerrequisito);
-        return ResponseEntity.ok(p);
-    }
-
-    @GetMapping("/byPrerequisitos/{codigoPrerequisitos}")
-    public ResponseEntity<PrerrequisitoEntity> buscarPrerequisito(@PathVariable("codigoPrerequisitos") int codigoPrerequisitos){
-        PrerrequisitoEntity newPrerequisito = prerrequisitoService.findRequisiteById(codigoPrerequisitos);
-        if(newPrerequisito == null){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(newPrerequisito);
-    }
 }

@@ -1,0 +1,51 @@
+/* MostrarHorarios.css */
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    margin-top: 20px;
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor según sea necesario */
+    padding: 20px;
+  }
+  
+  .title-container {
+    text-align: center;
+    
+  }
+  
+  .title {
+    font-size: 30px; /* Ajusta el tamaño del título según sea necesario */
+    color: #000; /* Ajusta el color del texto según sea necesario */
+    font-weight: bold;
+  }
+  
+  .table-container {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agregar una sombra para resaltar el contorno */
+  }
+  
+  .horarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .horarios-table th,
+  .horarios-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .horarios-table th {
+    background-color: #50C878;
+  }
+  
+  .horarios-table td.ocupado {
+    background-color: #ffcccc;
+  }
+  

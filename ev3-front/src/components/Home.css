@@ -1,0 +1,39 @@
+/* components/Home.css */
+.content {
+  align-content: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+  }
+  
+  .title {
+    color:  #50C878;
+  }
+  .noticias {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  .informacion-inscripcion {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .informacion-inscripcion ul {
+    list-style-type: square;
+    padding-left: 20px;
+  }
+  
+  .informacion-inscripcion h3 {
+    color: #333;
+  }
+  

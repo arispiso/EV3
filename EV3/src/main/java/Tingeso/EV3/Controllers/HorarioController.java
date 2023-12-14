@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/horarios")
@@ -14,35 +15,25 @@ public class HorarioController {
     @Autowired
     private HorarioService horarioService;
 
-    @GetMapping()
-    public ResponseEntity<ArrayList<HorarioEntity>> getAllHorarios(){
-        ArrayList<HorarioEntity> Horarios = horarioService.getAllHorarios();
-        if(Horarios == null){
-            return ResponseEntity.noContent().build();
+    @PostMapping("/agregar")
+    public ResponseEntity<?> agregarHorario(@RequestBody HorarioEntity horario) {
+        //  verificar que la asignatura no sea nula
+        if (horario.getAsignatura() == null || horario.getAsignatura().getCodasig() == null) {
+            // Manejo de error, por ejemplo, lanzar una excepción o devolver un ResponseEntity con un mensaje de error.
+            return ResponseEntity.badRequest().body("La asignatura no puede ser nula.");
         }
-        return ResponseEntity.ok(Horarios);
+
+        // Guardar el horario
+        HorarioEntity horarioGuardado = horarioService.guardarHorario(horario);
+        return ResponseEntity.ok(horarioGuardado);
+    }
+    @GetMapping("/modulos")
+    public ArrayList<String> getModulos() {
+        return horarioService.obtenerModulos();
     }
 
-    @PostMapping()
-    public ResponseEntity<?> crearHorario(@RequestBody HorarioEntity horario) {
-        HorarioEntity newHorario = horarioService.crearHorario(horario);
-        return ResponseEntity.ok(newHorario);
-    }
-    @GetMapping("/ByBloque/{bloque}")
-    public ResponseEntity<HorarioEntity> getBloques(@PathVariable("bloque") int bloque){
-        HorarioEntity horario = horarioService.buscarHorarioPorBloque(bloque);
-        if(horario == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(horario);
-    }
-
-    @GetMapping("/ByIdHorario/{idHorario}")
-    public ResponseEntity<HorarioEntity> getHorario(@PathVariable("idHorario") int idHorario){
-        HorarioEntity horario = horarioService.buscarPorIdHorario(idHorario);
-        if(horario == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(horario);
+    @GetMapping
+    public List<HorarioEntity> obtenerHorarios() {
+        return horarioService.obtenerHorarios();
     }
 }

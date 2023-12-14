@@ -1,5 +1,6 @@
 package Tingeso.EV3.Entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CarreraEntity {
     @Id
-    private int codigo;
-    private String nombre;
-
+    @Column(name = "codcarr", nullable = false, unique = true)
+    private Long codcarr;
+    private String nombrecarrera;
 }

@@ -11,6 +11,4 @@ import java.util.ArrayList;
 @Repository
 public interface CarreraRepository extends JpaRepository<CarreraEntity,Long> {
 
-    CarreraEntity findByCodigo(int codigo);
-
 }

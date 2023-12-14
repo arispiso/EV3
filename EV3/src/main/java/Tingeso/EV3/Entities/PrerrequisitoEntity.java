@@ -1,10 +1,7 @@
 package Tingeso.EV3.Entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +9,16 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "preRequisitos")
+@Table(name = "prerrequisitos")
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
 public class PrerrequisitoEntity {
-    private int cod_asig;
     @Id
-    private int cod_prerreq;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idprerrequisito;
+    @ManyToOne
+    @JoinColumn(name = "codasig")
+    private AsignaturaEntity asignatura;//llave foranea
+    private int codprerrequisito;
 }
